@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
                 ),
                 TextFormField(
                   controller: _passwordController,
-                  obscureText: eye,
+                  obscureText: !eye,
                   decoration: InputDecoration(
                       label: Text('Password'),
                       icon: Icon(
@@ -80,8 +80,8 @@ class _LoginState extends State<Login> {
                             });
                           },
                           icon: FaIcon(eye
-                              ? FontAwesomeIcons.eyeSlash
-                              : FontAwesomeIcons.eye))),
+                              ? FontAwesomeIcons.eye
+                              : FontAwesomeIcons.eyeSlash))),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 18),

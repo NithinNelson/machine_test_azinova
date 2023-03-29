@@ -51,7 +51,7 @@ Future<void> getRapi(context) async {
 
 Future<void> refreshData() async {
   itemList.clear();
-  itemData = await ItemDatabase.instance.readAllStudentData();
+  itemData = await ItemDatabase.instance.readAllItemData();
   itemData.forEach((element) {
     itemList.insert(0, {
       "itemName": element.itemName,

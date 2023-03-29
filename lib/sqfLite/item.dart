@@ -2,7 +2,6 @@ final String tableItems = 'items';
 
 class ItemFields {
   static final List<String> values = [
-    /// Add all fields
     id,
     itemName,
     itemImage,

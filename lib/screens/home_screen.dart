@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  _getData() async {
+  Future<void> _getData() async {
     setState(() {
       loader = true;
     });
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         loader = false;
       });
     });
-    itemData = await ItemDatabase.instance.readAllStudentData();
+    itemData = await ItemDatabase.instance.readAllItemData();
     if (itemData.isEmpty) {
       setState(() {
         loader = true;
@@ -43,10 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
         loader = false;
       });
     }
-  }
-
-  Future<void> refresh() async {
-    _getData();
   }
 
   @override
@@ -68,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               height: double.infinity,
               child: RefreshIndicator(
-                onRefresh: refresh,
+                onRefresh: _getData,
                 child: ListView.builder(
                     itemCount: itemList.length,
                     itemBuilder: (context, index) {

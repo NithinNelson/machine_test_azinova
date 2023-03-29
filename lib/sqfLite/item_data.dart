@@ -60,7 +60,7 @@ class ItemDatabase {
     }
   }
 
-  Future<List<Items>> readAllStudentData() async {
+  Future<List<Items>> readAllItemData() async {
     final db = await instance.database;
 
     final result =

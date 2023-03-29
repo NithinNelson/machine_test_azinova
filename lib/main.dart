@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:machine_test_azinova/screens/home_screen.dart';
 import 'package:machine_test_azinova/screens/login.dart';
 
 void main() {

@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         loader = true;
       });
     } else {
+      print('---------w------------$itemData');
       setState(() {
         loader = false;
       });
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: RefreshIndicator(
                 onRefresh: _getData,
                 child: ListView.builder(
-                    itemCount: itemList.length,
+                    itemCount: itemData.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -75,9 +76,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (context) {
                               return Details(
-                                  itemName: itemList[index]['itemName'],
-                                  itemImage: itemList[index]['itemImage'],
-                                  itemDetails: itemList[index]['itemDetails']);
+                                  itemName: itemData[index].itemName,
+                                  itemImage: itemData[index].itemImage,
+                                  itemDetails: itemData[index].itemDetails);
                             }));
                           },
                           child: SizedBox(
@@ -108,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: SizedBox(
                                         width: 100,
                                         child: Image.network(
-                                            itemList[index]['itemImage'],
+                                            itemData[index].itemImage,
                                             fit: BoxFit.cover,
                                             loadingBuilder: imageLoading),
                                       ),
@@ -119,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Container(
                                       width: 200.w,
                                       child: Text(
-                                        itemList[index]['itemName'],
+                                        itemData[index].itemName,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                             color: Colors.brown,

@@ -90,16 +90,6 @@ class ItemDatabase {
     );
   }
 
-  Future<int> deleteStatus0(int id) async {
-    final db = await instance.database;
-
-    return await db.delete(
-      tableItems,
-      where: '${ItemFields.itemName} = ?',
-      whereArgs: [id],
-    );
-  }
-
   Future close() async {
     final db = await instance.database;
     db.close();
